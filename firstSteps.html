@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Stripe Test</title>
 </head>
 <body>
     <h1 style = "color:cornflowerblue; text-align:center; font-family:gill sans;">Stripe Subscription Plans</h1>
-    <p style = "color: rgb(177, 156, 217); font-family:gill sans; text-align: center; font-size: larger;"><span><strong><a href= "" onclick= "subscriptionType(10)">Basic Subscription: $10</a> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <a href = "" onclick = "subscriptionType(15)">Premimium Subscription: $15</a> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <a href = "" onclick = "subscriptionType(20)">Deluxe Subscription: $20</a></strong></span></p>
+    <p style = "color: rgb(177, 156, 217); font-family:gill sans; text-align: center; font-size: larger;"><span><strong><a href= "" onclick= "confirmSubscription(10)">Basic Subscription: $10</a> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <a href = "" onclick = "confirmSubscription(15)">Premimium Subscription: $15</a> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <a href = "" onclick = "confirmSubscription(20)">Deluxe Subscription: $20</a></strong></span></p>
     <script>
+        function confirmSubscription(cost){
+            var type;
+            switch(cost){
+                case 10:
+                    type = "Basic";
+                    break;
+                case 15:
+                    type = "Premimium";
+                    break;
+                case 20:
+                    type = "Deluxe";
+                    break; 
+            }
+            if(confirm(`Would you like to continue?\nYour current subscrition is ${type}: $${cost}`)){
+                subscriptionType(cost);
+            }
+            
+        }
+
         function subscriptionType(cost){
             event.preventDefault();
             var fName, lName;
@@ -19,6 +38,8 @@
                     alert("Please enter a real name");
                 }
             }
+            var temp = fName.substring(0, 1).toUpperCase();
+            var fName = temp.concat(fName.substring(1, fName.length));
             console.log(fName);
             while(lName == null || /\d/.test(lName) || lName.length < 2){
                 lName = prompt("Enter your last name");
@@ -26,11 +47,10 @@
                     alert("Please enter a real name");
                 }
             }
-
+            var temp = lName.substring(0, 1).toUpperCase();
+            var lName = temp.concat(lName.substring(1, lName.length));
             
-            console.log(`Your name: ${fName} ${lName}`);
-            console.log("Sync test");
-            
+            console.log(`Your name: ${fName} ${lName}`);            
         }
     </script>
 </body>
