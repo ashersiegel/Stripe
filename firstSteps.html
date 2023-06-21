@@ -7,13 +7,27 @@
 </head>
 <body>
     <h1 style = "color:cornflowerblue; text-align:center; font-family:gill sans;">Stripe Subscription Plans</h1>
-    <p style = "color:darkslateblue; text-align:center; font-size: larger;""><strong>Basic Subscription: $10 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;Premimium Subscription: $15 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;Deluxe Subscription: $20</strong></p>
-    <p style = "text-align: center;"><span><a href= "" onclick= "subscriptionType(10)">Basic Subscription Plan</a> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <a href = "" onclick = "subscriptionType(15)">Premimium Subscription Plan</a> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <a href = "" onclick = "subscriptionType(20)">Deluxe Subscription Plan</a></span></p>
+    <p style = "color: rgb(177, 156, 217); font-family:gill sans; text-align: center; font-size: larger;"><span><strong><a href= "" onclick= "subscriptionType(10)">Basic Subscription: $10</a> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <a href = "" onclick = "subscriptionType(15)">Premimium Subscription: $15</a> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <a href = "" onclick = "subscriptionType(20)">Deluxe Subscription: $20</a></strong></span></p>
     <script>
         function subscriptionType(cost){
             event.preventDefault();
-            var fName = prompt("Enter your first name");
-            var lName = prompt("Enter your last name");
+            var fName, lName;
+            while(fName == null || /\d/.test(fName) || fName.length < 2){
+                fName = prompt("Enter your first name");
+                if(fName == null || /\d/.test(fName) || fName.length < 2){
+                    console.log("firdt alertt");
+                    alert("Please enter a real name");
+                }
+            }
+            console.log(fName);
+            while(lName == null || /\d/.test(lName) || lName.length < 2){
+                lName = prompt("Enter your last name");
+                if(lName == null || /\d/.test(lName) || lName.length < 2){
+                    alert("Please enter a real name");
+                }
+            }
+
+            
             console.log(`Your name: ${fName} ${lName}`);
             console.log("Sync test");
             
