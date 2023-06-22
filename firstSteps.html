@@ -6,9 +6,13 @@
     <title>Stripe Test</title>
 </head>
 <body>
+    <button style = "color: cornflowerblue;" id = "myButton">Checkout</button>
+   <!-- 
     <h1 style = "color:cornflowerblue; text-align:center; font-family:gill sans;">Stripe Subscription Plans</h1>
     <p style = "color: rgb(177, 156, 217); font-family:gill sans; text-align: center; font-size: larger;"><span><strong><a href= "" onclick= "confirmSubscription(10)">Basic Subscription: $10</a> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <a href = "" onclick = "confirmSubscription(15)">Premimium Subscription: $15</a> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <a href = "" onclick = "confirmSubscription(20)">Deluxe Subscription: $20</a></strong></span></p>
+   -->
     <script>
+       /*
         function confirmSubscription(cost){
             var type;
             switch(cost){
@@ -51,6 +55,11 @@
             
             console.log(`Your name: ${fName} ${lName}`);            
         }
+        */
+        var button = document.getElementById("myButton");
+        button.addEventListener("click", function(){
+        console.log("Checkout");
+        });
     </script>
 </body>
 </html>
